@@ -1,3 +1,4 @@
+import { Genre } from './../../genres/entities/Genre';
 import {
   Column,
   CreateDateColumn,
@@ -19,6 +20,9 @@ export class Game {
 
   @ManyToMany(() => User, (user) => user.games)
   users: User[];
+
+  @ManyToMany(() => Genre, (genre) => genre.games)
+  genres: Genre[];
 
   @CreateDateColumn()
   created_at: Date;
